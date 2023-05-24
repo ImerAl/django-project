@@ -33,18 +33,14 @@ def insert(request):
         })
     else:
         try:
-
+            
             credit = TypeC.objects.get(name="Credito")
 
             form = Insert_Amount(request.POST)
             batch = add_batch()
-
+            
             batchid = Batch.objects.get(batch_number=batch)
             moneyflow = form.save(commit=False)
-
-            print(credit.name)
-            print(moneyflow.type)
-            print(moneyflow.type)
 
             if moneyflow.type is None:
                 moneyflow.pay_date = moneyflow.done_date

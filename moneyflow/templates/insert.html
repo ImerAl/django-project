@@ -11,7 +11,7 @@
             </div>
         </div>
         <div>
-            <button type="submit" class="btn btn-primary">submit</button>
+            <button type="submit" class="btn btn-primary">Ingresar</button>
         </div>
     </form>
 </main>
@@ -19,10 +19,10 @@
 <script>
     var t = document.getElementById("id_type");
     var pd = document.getElementById("id_pay_date");
-   
+    
 
     t.addEventListener("change", (event) => {
-        console.log(t.value);
+        
          if(t.value == 1){
             pd.disabled = true;
          } else {
@@ -30,6 +30,8 @@
             pd.valueAsDate = null;
          }
     });
+
+
 
 
    

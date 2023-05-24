@@ -39,7 +39,7 @@ class MoneyInformation (models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE, default=1)
     pay_date = models.DateField(default=datetime.datetime.now)
     def __str__(self):
-        return self.code + ': ' + self.name
+        return self.name
 
 class Cut_Off (models.Model):
     cutoff_date = models.DateField()
