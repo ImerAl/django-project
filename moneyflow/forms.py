@@ -24,7 +24,7 @@ class Insert_Amount(forms.ModelForm):
         queryset=TypeC.objects.all(),
         widget=forms.Select,
         label= "Tipo tarjeta")
-    pay_date = forms.DateField(widget=forms.DateInput(attrs={'type': 'date'}), required=False, disabled=True)
+    pay_date = forms.DateField(widget=forms.DateInput(attrs={'type': 'date'}), required=False)
 
     class Meta:
         model = MoneyInformation
@@ -52,7 +52,7 @@ class Update_Moneyflow(forms.ModelForm):
         queryset=TypeC.objects.all(),
         widget=forms.Select,
         label= "Tipo tarjeta")
-    pay_date = forms.DateField(widget=forms.DateInput(attrs={'type': 'date'}), disabled=True, required=False)
+    pay_date = forms.DateField(widget=forms.DateInput(attrs={'type': 'date'}))
 
     class Meta:
         model = MoneyInformation
