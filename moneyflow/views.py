@@ -204,7 +204,7 @@ def signup(request):
                 user = User.objects.create_user(username=request.POST['username'],
                 password=request.POST['password1']) #Obtener del post para crear usuario
                 user.save() #guardar en la Base de datos usuario
-                login(request, user)
+                #login(request, user)
                 return redirect('/login/')
             except:
                 HttpResponse('Error')
