@@ -1,0 +1,98 @@
+{% extends 'layouts/base.html'%}
+{% block content %}
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Ingresos y egresos</title>
+</head>
+<body>
+<div>
+    <h1>Ingresos y egresos</h1>
+
+	<form action="" method="POST">
+		{% csrf_token %}
+		<input name=date type="month">
+		<button type="submit" class="btn btn-primary"> Buscar </button>
+	</form>
+</div>
+
+	<table border="1" class="table table-striped-columns">
+		<thead>
+			<tr>
+				<th>Nombre</th>
+				<th>Tipo de tarjeta</th>
+				<th>Monto</th>
+				<th>Fecha de realizado</th>
+				<th>Fecha de corte</th>
+				<th>Descripción</th>
+			</tr>
+		</thead>
+		<tbody>
+		{% for inmoney in income %}
+			<tr>
+				<td>
+					<a href="{% url 'details' inmoney.id %}">
+						{{inmoney.name}}
+					</a>
+				</td>
+				<td>{{inmoney.type.name}}</td>
+				<td>${{inmoney.amount}}</td>
+				<td>{{inmoney.done_date}}</td>
+				{% if inmoney.type.name == "Credito" %}
+					<td class="text-danger">{{inmoney.pay_date}}</td>
+				{% else %}
+					<td>N/A</td>
+				{% endif %}
+				<td>{{inmoney.description}}</td>
+				<td>
+					<a class="btn btn-success" type="button" href="{% url 'update' inmoney.id %}">Actualizar</a>
+					<a class="btn btn-danger" type="button" href="{% url 'delete' inmoney.id %}">Eliminar</a>
+				</td>
+				
+
+			</tr>
+		{% endfor %}
+		</tbody>
+	</table>
+
+	<table border="1" class="table table-striped-columns">
+		<thead>
+			<tr>
+				<th>Nombre</th>
+				<th>Tipo de tarjeta</th>
+				<th>Monto</th>
+				<th>Fecha de realizado</th>
+				<th>Fecha de corte</th>
+				<th>Descripción</th>
+			</tr>
+		</thead>
+		<tbody>
+			{% for outmoney in outcome %}
+			<tr>
+				<td>{{outmoney.name}}</td>
+				<td>{{outmoney.type.name}}</td>
+				<td>${{outmoney.amount}}</td>
+				<td>{{outmoney.done_date}}</td>
+				{% if outmoney.type.name == "Credito" %}
+					<td class="text-danger">{{outmoney.pay_date}}</td>
+				{% else %}
+					<td>N/A</td>
+				{% endif %}
+				<td>{{outmoney.description}}</td>
+				<td>
+					<a class="btn btn-success" type="button" href="{% url 'update' outmoney.id %}">Actualizar</a>
+					<a class="btn btn-danger" type="button" href="{% url 'delete' outmoney.id %}">Eliminar</a>
+				</td>
+			</tr>
+		{% endfor %}
+		</tbody>
+	</table>
+
+	<label>Ingresos: {{total_income}}$</label><br>
+	<label>Egresos: {{total_outcome}}$</label><br>
+	<label>Balance: {{balance}}$</label>
+</body>
+</html>
+{% endblock %}

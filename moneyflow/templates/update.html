@@ -1,0 +1,46 @@
+{% extends 'layouts/base.html'%}
+{% block content %}
+<main class="container">
+    <h1>
+        {{move.name}}
+    </h1>
+    <form method="POST" class="card card-body">
+        <div class="row">
+            <div class="col-md-4 offset-md-4 mt-5">
+                {% csrf_token %}
+                {{form.as_p}}
+                <button class="btn btn-success">Actualizar</button>
+            </div>
+        </div>
+    </form>
+</main>
+
+
+<script>
+    var t = document.getElementById("id_type");
+    var pd = document.getElementById("id_pay_date");
+    var v = "{{move.transaction_type}}";
+
+    t.addEventListener("change", (event) => {
+         if(t.value == 1){
+            pd.disabled = true;
+         } else {
+            pd.disabled = false;
+            pd.valueAsDate = null;
+         }
+    });
+
+    window.addEventListener("load", (event) => {
+        
+        if (v == "True") {
+            document.getElementById("id_transaction_type_0").checked = true;
+        }
+        else{
+            document.getElementById("id_transaction_type_1").checked = true;
+        }
+        
+    });
+
+
+</script>
+{% endblock %}

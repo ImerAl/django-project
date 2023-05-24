@@ -1,0 +1,35 @@
+{% extends 'layouts/base.html'%}
+{% block content %}
+<title>signup</title>
+
+{{error}}
+<main class="container">
+        <div class="row">
+            <div class="col-md-4 offset-md-4 mt-5">
+                <form action="/signup/" method="POST" class="card card-body text center">
+                <h1 class="text-center">Registro</h1>
+                {% csrf_token %}
+                
+                <div class="mb-3">
+                    <label for="username">Nombre de usuario:</label>
+                    <input type="text" name="username" class="form-control" id="username">
+                </div> 
+                <div class="mb-3">
+                    <label for="password1">Contraseña:</label>
+                    <input type="password" name="password1" class="form-control" id="password1">
+                </div>   
+                <div class="mb-3">
+                    <label for="password2">Confirmar contraseña:</label>
+                    <input type="password" name="password2" class="form-control" id="password2">
+                </div>   
+                <button class="btn btn-primary">
+                    Registro
+                </button>
+
+                </form>
+            </div>
+        </div>
+       
+    
+</main>
+{% endblock %}

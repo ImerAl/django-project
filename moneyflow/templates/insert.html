@@ -1,0 +1,40 @@
+{% extends 'layouts/base.html'%}
+
+{% block content %}
+<main class= "container">
+    <form method="POST" class="card card-body">
+            <div class="row">
+                <div class="col-md-4 offset-md-4 mt-5">
+                {% csrf_token %}
+                {{form.as_p}}
+                </div>
+            </div>
+        </div>
+        <div>
+            <button type="submit" class="btn btn-primary">submit</button>
+        </div>
+    </form>
+</main>
+
+<script>
+    var t = document.getElementById("id_type");
+    var pd = document.getElementById("id_pay_date");
+   
+
+    t.addEventListener("change", (event) => {
+        console.log(t.value);
+         if(t.value == 1){
+            pd.disabled = true;
+         } else {
+            pd.disabled = false;
+            pd.valueAsDate = null;
+         }
+    });
+
+
+   
+
+</script>
+
+
+{% endblock %}

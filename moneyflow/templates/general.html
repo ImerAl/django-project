@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+{% extends 'layouts/base.html'%}
+{% block content %}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>General</title>
+</head>
+<body>
+<h1> General </h1>
+    {% for g in general %}
+        <h2>{{ g.name }}</h2>
+    {% endfor %}
+</body>
+</html>
+
+{%  endblock %}

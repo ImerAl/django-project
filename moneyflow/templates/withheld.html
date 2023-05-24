@@ -1,0 +1,41 @@
+{% extends 'layouts/base.html'%}
+{% block content %}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Retenidos</title>
+</head>
+<body>
+<table class="table table-dark table-striped">
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Monto</th>
+      <th>Fecha realizado</th>
+      <th>Descripción</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for det in detained %}
+    <tr>
+
+      <td>{{det.name}}</td>
+      <td>${{det.amount}}</td>
+      <td>{{det.done_date}}</td>
+      <td>{{det.type.name}}</td>
+      <td>
+        <a class="btn btn-success" type="button" href="{% url 'update' det.id %}">Actualizar</a>
+        <a class="btn btn-danger" type="button" href="{% url 'delete' det.id %}">Eliminar</a>
+      </td>
+
+    </tr>
+  {% endfor %}
+  </tbody>
+</table>
+
+</body>
+</html>
+
+{% endblock %}

@@ -1,0 +1,25 @@
+Instalar Django
+
+pip install django
+
+Crear proyecto
+
+django-admin startprojectt mysite  .
+
+Correr Servidor
+
+python manage.py runserver [puerto]
+
+Agregar una app
+
+python manage.py startapp [nombre]
+
+Migrar base de datos
+
+python manage.py migrate
+
+Migrar modelos
+
+python manage.py makemigrations [nombre de la app]
+
+python manage.py migrate --fake APPNAME zero
