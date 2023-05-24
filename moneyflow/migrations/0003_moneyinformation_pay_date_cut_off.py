@@ -16,7 +16,7 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='moneyinformation',
             name='pay_date',
-            field=models.DateField(default='01-01-2000'),
+            field=models.DateField(default='2000-01-01'),
         ),
         migrations.CreateModel(
             name='Cut_Off',
