@@ -94,6 +94,10 @@ def show(request):
         total_outcome = flow['outcome']
         balance = flow['balance']
 
+        total_income = round(total_income,2)
+        total_outcome = round(total_outcome,2)
+        balance = round(balance,2)
+
         return render(request, 'show.html', {'income': income, 'outcome': outcome,
                                              'total_income': total_income, 'total_outcome': total_outcome,
                                              'balance': balance})
@@ -111,6 +115,10 @@ def show(request):
         total_income = flow['income']
         total_outcome = flow['outcome']
         balance = flow['balance']
+
+        total_income = round(total_income,2)
+        total_outcome = round(total_outcome,2)
+        balance = round(balance,2)
 
         return render(request, 'show.html', {'income': income, 'outcome': outcome,
                                              'total_income': total_income, 'total_outcome': total_outcome,
