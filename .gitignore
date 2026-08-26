@@ -1,4 +1,10 @@
 db.sqlite3
 venv
+.venv
+activate
 __pycache__
+*.pyc
+.idea
+staticfiles
+.env
 cosasDjango.txt

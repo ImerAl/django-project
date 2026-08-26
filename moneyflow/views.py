@@ -11,8 +11,6 @@ from django.contrib.auth import login, logout, authenticate
 from .forms import Insert_Amount
 import random
 import datetime
-import numpy as np
-import pandas as pd
 from .forms import *
 from django.shortcuts import get_object_or_404
 from django.contrib.auth.decorators import login_required
